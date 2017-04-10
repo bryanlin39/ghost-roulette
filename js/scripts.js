@@ -11,10 +11,14 @@ function flipCard(card) {
   if (card.hasClass("ghost")) {
     if (player1.isTurn === true) {
       player1.choseGhost = true;
-      alert("YOU LOSE 1")
+      $(".panel-body").unbind("click");
+      $("#dialog").dialog("open");
+      // $(".panel-body").hide();
     } else {
       player2.choseGhost = true;
-      alert("YOU LOSE 2")
+      $(".panel-body").unbind("click");
+      $("#dialog").dialog("open");
+      // $(".panel-body").hide();
     }
   } else {
     if (player1.isTurn === true) {
@@ -38,6 +42,14 @@ function playerTurn() {
 }
 
 $(document).ready(function() {
+  $("#dialog").dialog({
+   autoOpen: false,
+   height: 500,
+   width: 500,
+   draggable: true,
+   resizable: false,
+   closeOnEscape: false
+ });
   playerTurn();
   $(".col-md-3").click(function() {
     $(this).find(".front").show();
@@ -46,5 +58,16 @@ $(document).ready(function() {
     flipCard(card);
     playerTurn();
     console.log(player1);
+
+});
+  $("#end-button").click(function(){
+    $(".front").hide();
+    $(".back").show();
+    $("#dialog").dialog("close");
+    $(".panel-body").show();
+    player1.isTurn = true;
+    player2.isTurn = false;
+    playerTurn();
   });
+
 });

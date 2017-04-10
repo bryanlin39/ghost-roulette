@@ -12,6 +12,9 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  text-align: center;
+}
 img {
   width: 100%;
   border-radius: 20px;
@@ -39,4 +42,18 @@ img {
 
 .player2Turn {
   background-color: #fff2bf;
+}
+
+#end-button {
+  width: 300px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+#end-ghost {
+  width: 60%;
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
 }
