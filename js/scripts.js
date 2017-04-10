@@ -28,5 +28,6 @@ function flipCard() {
 $(document).ready(function() {
   $(".col-md-3").click(function() {
     flipCard();
+    console.log($(this).hasClass("ghost"));
   });
 });
