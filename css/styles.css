@@ -3,6 +3,7 @@
   color: black;
   height: 110px;
   margin: 30px;
+  text-align: center;
 }
 
 h1 {
@@ -30,10 +31,12 @@ img {
 
 .spooky {
   width: 160px;
-  float:left
 }
 
-.spooky2 {
-  width: 160px;
-  float:right;
+.player1Turn {
+  background-color: #dde4ff;
+}
+
+.player2Turn {
+  background-color: #fff2bf;
 }
