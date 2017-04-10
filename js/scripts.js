@@ -4,11 +4,11 @@ function Player(name, isTurn, choseGhost) {
   this.choseGhost = choseGhost;
 }
 
-var player1 = new Player(player1, true, false);
-var player2 = new Player(player2, false, false);
+var player1 = new Player("player1", true, false);
+var player2 = new Player("player2", false, false);
 
-function flipCard() {
-  if ($(this).hasClass("ghost")) {
+function flipCard(card) {
+  if (card.hasClass("ghost")) {
     if (player1.isTurn === true) {
       player1.choseGhost = true;
     } else {
@@ -27,7 +27,9 @@ function flipCard() {
 
 $(document).ready(function() {
   $(".col-md-3").click(function() {
-    flipCard();
-    console.log($(this).hasClass("ghost"));
+    $(this).find(".front").show();
+    $(this).find(".back").hide();
+    var card = $(this);
+    flipCard(card);
   });
 });
