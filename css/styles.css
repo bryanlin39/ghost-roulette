@@ -1,7 +1,8 @@
 #header {
-  background-color: grey;
-  color: white;
+  background-color: white;
+  color: black;
   height: 110px;
+  margin: 30px;
 }
 
 h1 {
