@@ -1,0 +1,11 @@
+img {
+  width: 100%;
+}
+
+.panel-heading {
+  text-align: center;
+}
+
+#ghost-title {
+  color: red;
+}
