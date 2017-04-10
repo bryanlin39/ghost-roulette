@@ -1,5 +1,13 @@
+#header {
+  background-color: grey;
+  color: white;
+  height: 110px;
+}
+
 h1 {
   text-align: center;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 img {
@@ -13,4 +21,8 @@ img {
 
 #ghost-title {
   color: red;
+}
+
+.front {
+  display: none;
 }

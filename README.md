@@ -17,6 +17,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 * Replay button to reset cards
 
 ## Additional Features
+* Have up to 4 players (number of ghosts = number of players - 1)
 * Randomize cards every new game
 * Show all cards face-up in the beginning, then flip over and shuffle
 * Special cards - flip 2 cards, opponent flips 2 cards, add another ghost
