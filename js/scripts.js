@@ -7,18 +7,18 @@ function Player(name, isTurn, choseGhost) {
 var player1 = new Player("player1", true, false);
 var player2 = new Player("player2", false, false);
 
+function randomNum() {
+  return Math.ceil(Math.random()*16);
+}
+
 function flipCard(card) {
-  if (card.hasClass("ghost")) {
+  if (card.hasClass("ghostCard")) {
     if (player1.isTurn === true) {
       player1.choseGhost = true;
-      $(".panel-body").unbind("click");
       $("#dialog").dialog("open");
-      // $(".panel-body").hide();
     } else {
       player2.choseGhost = true;
-      $(".panel-body").unbind("click");
       $("#dialog").dialog("open");
-      // $(".panel-body").hide();
     }
   } else {
     if (player1.isTurn === true) {
@@ -42,6 +42,8 @@ function playerTurn() {
 }
 
 $(document).ready(function() {
+  var ghostSelect = randomNum();
+
   $("#dialog").dialog({
    autoOpen: false,
    height: 500,
@@ -50,24 +52,38 @@ $(document).ready(function() {
    resizable: false,
    closeOnEscape: false
  });
+
   playerTurn();
   $(".col-md-3").click(function() {
-    $(this).find(".front").show();
-    $(this).find(".back").hide();
     var card = $(this);
-    flipCard(card);
-    playerTurn();
+    console.log(this.className,ghostSelect)
+    if(this.className==="col-md-3 " + ghostSelect){
+      $("." + ghostSelect).find(".ghost").show();
+      $("." + ghostSelect).find(".back").hide();
+      $("." + ghostSelect).addClass("ghostCard");
+      flipCard(card);
+  } else {
+      $(this).find(".front").show();
+      $(this).find(".back").hide();
+      flipCard(card);
+      playerTurn();
+    }
     console.log(player1);
+    console.log(player2);
+  });
 
-});
   $("#end-button").click(function(){
     $(".front").hide();
     $(".back").show();
+    $(".ghost").hide();
     $("#dialog").dialog("close");
-    $(".panel-body").show();
     player1.isTurn = true;
     player2.isTurn = false;
+    $("." + ghostSelect).removeClass("ghostCard");
     playerTurn();
+    ghostSelect = randomNum();
+    player1.choseGhost = false;
+    player2.choseGhost = false;
   });
 
 });
