@@ -63,3 +63,20 @@ img {
   margin: auto;
   margin-bottom: 15px;
 }
+
+#game {
+  display: none;
+}
+
+#intro-pic {
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#game-start {
+  display: block;
+  margin: auto;
+}

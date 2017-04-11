@@ -53,6 +53,11 @@ $(document).ready(function() {
    closeOnEscape: false
  });
 
+ $("#game-start").click(function(){
+   $(".introd").hide();
+   $("#game").show();
+ });
+
   playerTurn();
   $(".col-md-3").click(function() {
     var card = $(this);

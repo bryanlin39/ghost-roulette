@@ -11,113 +11,129 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row" id="header">
-        <div class="col-md-2">
-          <img src="img/spooky.jpg" class="spooky">
-          <h2 id="player1">Player 1</h2>
-        </div>
-        <div class="col-md-8">
-          <h1>Ghost Roulette</h1>
-        </div>
-        <div class="col-md-2">
-          <img src="img/spooky.jpg" class="spooky">
-          <h2 id="player2">Player 2</h2>
-        </div>
+      <div class="intro">
+        <h1>Ghost Roulette</h1>
+        <h2 id="rules">Rules:</h2>
+        <ul>
+          <li>There are 16 cards total</li>
+          <li>There is 1 ghost card. </li>
+          <li>If you flip over a ghost card, you lose!</li>
+          <li>During a turn, player flips over a card and if its not the ghost card, it is the next player's turn</li>
+        </ul>
+        <img id="intro-pic" src="img/intro.png">
+        <button type="button" id="game-start"  class="btn btn-primary btn-lg">Start Game</button>
       </div>
+      <div id="game">
+        <div class="row" id="header">
+          <div class="col-md-2">
+            <img src="img/spooky.jpg" class="spooky">
+            <h2 id="player1">Player 1: <span id="player1Points"></span></h2>
+          </div>
+          <div class="col-md-8">
+            <h1>Ghost Roulette</h1>
+          </div>
+          <div class="col-md-2">
+            <img src="img/spooky.jpg" class="spooky">
+            <h2 id="player2">Player 2: <span id="player1Points"></span></h2>
+          </div>
+        </div>
 
-      <div class="row">
-        <div class="col-md-3 1">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 2">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 3">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 4">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-      </div><!-- row1 -->
-      <div class="row">
-        <div class="col-md-3 5">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 6">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 7">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 8">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-      </div><!-- row2 -->
-      <div class="row">
-        <div class="col-md-3 9">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 10">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 11">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 12">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-      </div><!-- row3 -->
-      <div class="row">
-        <div class="col-md-3 13">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 14">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 15">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-        <div class="col-md-3 16">
-          <img src="img/ghostbusters.jpg" class="front">
-          <img src="img/tombstone.jpg" class="back">
-          <img src="img/ghost.jpg" class="ghost">
-        </div>
-      </div><!-- row4 -->
-    </div><!-- overall container -->
+        <div class="row">
+          <div class="col-md-3 1">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 2">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 3">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 4">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+        </div><!-- row1 -->
+        <div class="row">
+          <div class="col-md-3 5">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 6">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 7">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 8">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+        </div><!-- row2 -->
+        <div class="row">
+          <div class="col-md-3 9">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 10">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 11">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 12">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+        </div><!-- row3 -->
+        <div class="row">
+          <div class="col-md-3 13">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 14">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 15">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+          <div class="col-md-3 16">
+            <img src="img/ghostbusters.jpg" class="front">
+            <img src="img/tombstone.jpg" class="back">
+            <img src="img/ghost.jpg" class="ghost">
+          </div>
+        </div><!-- row4 -->
+
+
     <div id="dialog">
       <h2>YOU LOSE! EEHEEEHEE~</h2>
       <img src="img/ghost.jpg" id="end-ghost">
       <button type="button" id="end-button" class="btn btn-lg">Play Again</button>
+      </div><!-- overall container -->
+    </div>
     </div>
   </body>
 </html>
