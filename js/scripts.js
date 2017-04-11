@@ -7,17 +7,36 @@ function Player(name, isTurn, choseGhost) {
 var player1 = new Player("player1", true, false);
 var player2 = new Player("player2", false, false);
 
+var ghostSelect = 0;
+
 function randomNum() {
   return Math.ceil(Math.random()*16);
+}
+
+function cardClick() {
+  var card = $(this);
+  if(this.className==="col-md-3 " + ghostSelect){
+    $("." + ghostSelect).find(".ghost").show();
+    $("." + ghostSelect).find(".back").hide();
+    $("." + ghostSelect).addClass("ghostCard");
+    flipCard(card);
+} else {
+    $(this).find(".front").show();
+    $(this).find(".back").hide();
+    flipCard(card);
+    playerTurn();
+  }
 }
 
 function flipCard(card) {
   if (card.hasClass("ghostCard")) {
     if (player1.isTurn === true) {
       player1.choseGhost = true;
+      $(".col-md-3").off("click", cardClick);
       $("#dialog").dialog("open");
     } else {
       player2.choseGhost = true;
+      $(".col-md-3").off("click", cardClick);
       $("#dialog").dialog("open");
     }
   } else {
@@ -42,7 +61,8 @@ function playerTurn() {
 }
 
 $(document).ready(function() {
-  var ghostSelect = randomNum();
+  ghostSelect = randomNum();
+  console.log(ghostSelect);
 
   $("#dialog").dialog({
    autoOpen: false,
@@ -54,30 +74,15 @@ $(document).ready(function() {
  });
 
  $("#game-start").click(function(){
-   $(".introd").hide();
+   $(".intro").hide();
    $("#game").show();
  });
 
   playerTurn();
-  $(".col-md-3").click(function() {
-    var card = $(this);
-    console.log(this.className,ghostSelect)
-    if(this.className==="col-md-3 " + ghostSelect){
-      $("." + ghostSelect).find(".ghost").show();
-      $("." + ghostSelect).find(".back").hide();
-      $("." + ghostSelect).addClass("ghostCard");
-      flipCard(card);
-  } else {
-      $(this).find(".front").show();
-      $(this).find(".back").hide();
-      flipCard(card);
-      playerTurn();
-    }
-    console.log(player1);
-    console.log(player2);
-  });
+  $(".col-md-3").on("click", cardClick);
 
-  $("#end-button").click(function(){
+  $("#play-again").click(function() {
+    $(".col-md-3").on("click", cardClick);
     $(".front").hide();
     $(".back").show();
     $(".ghost").hide();
@@ -89,6 +94,7 @@ $(document).ready(function() {
     ghostSelect = randomNum();
     player1.choseGhost = false;
     player2.choseGhost = false;
+    console.log(ghostSelect);
   });
 
 });
