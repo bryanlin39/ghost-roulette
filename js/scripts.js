@@ -34,10 +34,12 @@ function flipCard(card) {
       player1.choseGhost = true;
       $(".col-md-3").off("click", cardClick);
       $("#dialog").dialog("open");
+      $(".ui-dialog-titlebar-close").remove();
     } else {
       player2.choseGhost = true;
       $(".col-md-3").off("click", cardClick);
       $("#dialog").dialog("open");
+      $(".ui-dialog-titlebar-close").remove();
     }
   } else {
     if (player1.isTurn === true) {
@@ -66,8 +68,8 @@ $(document).ready(function() {
 
   $("#dialog").dialog({
    autoOpen: false,
-   height: 500,
-   width: 500,
+   height: 700,
+   width: 700,
    draggable: true,
    resizable: false,
    closeOnEscape: false

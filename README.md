@@ -8,13 +8,13 @@
 
 Two players take turns flipping a card. First player to flip the ghost card loses. Access the webpage directly from https://crispyb0i.github.io/ghost-roulette.
 
-## Minimum Viable Product
+<!-- ## Minimum Viable Product
 * 16 cards total
 * 1 ghost card
 * During a turn, player flips 1 card
 * Switch players every turn
 * If player flips ghost card, they lose
-* Replay button to reset cards
+* Replay button to reset cards -->
 
 ## Additional Features
 * Have up to 4 players (number of ghosts = number of players - 1)
@@ -23,6 +23,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 * Special cards - flip 2 cards, opponent flips 2 cards, add another ghost
 * Option to select number of ghosts before the game
 * Point system that lasts for 10 rounds (lose points for hitting ghosts)
+* Optimize for mobile using Bootstrap
 
 ## Setup/Installation Requirements
 
