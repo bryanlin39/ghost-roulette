@@ -124,12 +124,12 @@ $(document).ready(function() {
  });
 
   playerTurn();
-  $(".col-md-3").on("click", cardClick);
+  $(".col-md-3").one("click", cardClick);
 
   $("#play-again").click(function() {
     round += 1;
     $("#round").text(round);
-    $(".col-md-3").on("click", cardClick);
+    $(".col-md-3").one("click", cardClick);
     $(".front").hide();
     $(".back").show();
     $(".ghost").hide();
@@ -152,7 +152,7 @@ $(document).ready(function() {
     $("#round").text(round);
     $("#player1Points").text(player1.points);
     $("#player2Points").text(player2.points);
-    $(".col-md-3").on("click", cardClick);
+    $(".col-md-3").one("click", cardClick);
     $(".front").hide();
     $(".back").show();
     $(".ghost").hide();
