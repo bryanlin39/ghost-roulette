@@ -68,8 +68,8 @@ $(document).ready(function() {
 
   $("#dialog").dialog({
    autoOpen: false,
-   height: 500,
-   width: 500,
+   height: 700,
+   width: 700,
    draggable: true,
    resizable: false,
    closeOnEscape: false
