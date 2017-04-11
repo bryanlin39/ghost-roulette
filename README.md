@@ -22,6 +22,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 * Show all cards face-up in the beginning, then flip over and shuffle
 * Special cards - flip 2 cards, opponent flips 2 cards, add another ghost
 * Option to select number of ghosts before the game
+* Point system that lasts for 10 rounds (lose points for hitting ghosts)
 
 ## Setup/Installation Requirements
 
