@@ -94,6 +94,16 @@ img {
   font-family: 'Suravaram', serif;
 }
 
+.player1-turn-animation {
+  font-family: 'Suravaram', serif;
+  background-color: #dde4ff;
+}
+
+.player2-turn-animation {
+  font-family: 'Suravaram', serif;
+  background-color: #fff2bf;
+}
+
 #dialog {
   font-family: 'Suravaram', serif;
   background-color: black;
