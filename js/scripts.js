@@ -219,8 +219,7 @@ function diamond() {
   }
 }
 
-$(document).ready(function() {
-  $("#round").text(round);
+function setSpecialCards() {
   ghostSelect = randomNum();
   deadEnd = randomNum();
   while (deadEnd === ghostSelect) {
@@ -250,6 +249,37 @@ $(document).ready(function() {
   while (minus22 === ghostSelect || minus22 === deadEnd || minus22 === minus2 || minus22 === diamond1 || minus22 === diamond2 || minus22 === diamond3 || minus22 === deadEnd2) {
     minus22 = randomNum();
   }
+}
+
+function setNewRound() {
+  player1.choseGhost = false;
+  player2.choseGhost = false;
+  diamondCounter1 = 0;
+  diamondCounter2 = 0;
+  $("#round").text(round);
+  $("#player1Points").text(player1.points);
+  $("#player2Points").text(player2.points);
+  $(".col-md-3").one("click", cardClick);
+  $("#end-turn").on("click", endTurn);
+  $(".front").hide();
+  $(".back").show();
+  $(".ghost").hide();
+  $(".dead-end").hide();
+  $(".minus2").hide();
+  $(".diamond").hide();
+  $("." + ghostSelect).removeClass("ghostCard");
+  $("." + deadEnd).removeClass("deadEndCard");
+  $("." + minus2).removeClass("minus2Card");
+  $("." + diamond1).removeClass("diamondCard");
+  $("." + diamond2).removeClass("diamondCard");
+  $("." + diamond3).removeClass("diamondCard");
+  setSpecialCards();
+  playerTurn();
+}
+
+$(document).ready(function() {
+  $("#round").text(round);
+  setSpecialCards();
 
   console.log("ghost ",ghostSelect);
   console.log("deadEnds ",deadEnd, deadEnd2);
@@ -257,13 +287,13 @@ $(document).ready(function() {
   console.log("diamonds ",diamond1, diamond2, diamond3);
 
   $("#dialog").dialog({
-   autoOpen: false,
-   height: 700,
-   width: 700,
-   draggable: true,
-   resizable: false,
-   closeOnEscape: false
- });
+    autoOpen: false,
+    height: 700,
+    width: 700,
+    draggable: true,
+    resizable: false,
+    closeOnEscape: false
+  });
 
   $("#final-dialog").dialog({
     autoOpen: false,
@@ -274,11 +304,11 @@ $(document).ready(function() {
     closeOnEscape: false
   });
 
- $("#game-start").click(function() {
-   $(".intro").hide();
-   $("#game").show();
-   $("#player1-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player1-turn-animation");
- });
+  $("#game-start").click(function() {
+    $(".intro").hide();
+    $("#game").show();
+    $("#player1-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player1-turn-animation");
+  });
 
   playerTurn();
   $(".col-md-3").one("click", cardClick);
@@ -286,113 +316,23 @@ $(document).ready(function() {
 
   $("#next-round").click(function() {
     round += 1;
-    diamondCounter1 = 0;
-    diamondCounter2 = 0;
-    $("#round").text(round);
-    $(".col-md-3").one("click", cardClick);
-    $("#end-turn").on("click", endTurn);
-    $(".front").hide();
-    $(".back").show();
-    $(".ghost").hide();
-    $(".dead-end").hide();
-    $(".minus2").hide();
-    $(".diamond").hide();
     $("#dialog").dialog("close");
-    $("." + ghostSelect).removeClass("ghostCard");
-    $("." + deadEnd).removeClass("deadEndCard");
-    $("." + minus2).removeClass("minus2Card");
-    $("." + diamond1).removeClass("diamondCard");
-    $("." + diamond2).removeClass("diamondCard");
-    $("." + diamond3).removeClass("diamondCard");
-    ghostSelect = randomNum();
-    deadEnd = randomNum();
-    while (deadEnd === ghostSelect) {
-      deadEnd = randomNum();
-    }
-    minus2 = randomNum();
-    while (minus2 === ghostSelect || minus2 === deadEnd) {
-      minus2 = randomNum();
-    }
-    diamond1 = randomNum();
-    while (diamond1 === ghostSelect || diamond1 === deadEnd || diamond1 === minus2) {
-      diamond1 = randomNum();
-    }
-    diamond2 = randomNum();
-    while (diamond2 === ghostSelect || diamond2 === deadEnd || diamond2 === minus2 || diamond2 === diamond1) {
-      diamond2 = randomNum();
-    }
-    diamond3 = randomNum();
-    while (diamond3 === ghostSelect || diamond3 === deadEnd || diamond3 === minus2 || diamond3 === diamond1 || diamond3 === diamond2) {
-      diamond3 = randomNum();
-    }
-    deadEnd2 = randomNum();
-    while (deadEnd2 === ghostSelect || deadEnd2 === deadEnd || deadEnd2 === minus2 || deadEnd2 === diamond1 || deadEnd2 === diamond2 || deadEnd2 === diamond3) {
-      deadEnd2 = randomNum();
-    }
-    minus22 = randomNum();
-    while (minus22 === ghostSelect || minus22 === deadEnd || minus22 === minus2 || minus22 === diamond1 || minus22 === diamond2 || minus22 === diamond3 || minus22 === deadEnd2) {
-      minus22 = randomNum();
-    }
-    player1.choseGhost = false;
-    player2.choseGhost = false;
+    setNewRound();
     console.log("ghost ", ghostSelect);
     console.log("deadEnds ", deadEnd, deadEnd2);
     console.log("minus ", minus2, minus22);
     console.log("diamonds ", diamond1, diamond2, diamond3);
-    playerTurn();
   });
 
   $("#restart").click(function() {
     round = 1;
-    diamondCounter1 = 0;
-    diamondCounter2 = 0;
     player1.points = 0;
     player2.points = 0;
     player1.isTurn = true;
     player2.isTurn = false;
-    player1.choseGhost = false;
-    player2.choseGhost = false;
-    $("#round").text(round);
-    $("#player1Points").text(player1.points);
-    $("#player2Points").text(player2.points);
-    $(".col-md-3").one("click", cardClick);
-    $("#end-turn").on("click", endTurn);
-    $(".front").hide();
-    $(".back").show();
-    $(".ghost").hide();
-    $(".dead-end").hide();
-    $(".minus2").hide();
-    $(".diamond").hide();
+    setNewRound();
     $("#final-dialog").dialog("close");
-    $("." + ghostSelect).removeClass("ghostCard");
-    $("." + deadEnd).removeClass("deadEndCard");
-    $("." + minus2).removeClass("minus2Card");
-    $("." + diamond1).removeClass("diamondCard");
-    $("." + diamond2).removeClass("diamondCard");
-    $("." + diamond3).removeClass("diamondCard");
-    ghostSelect = randomNum();
-    deadEnd = randomNum();
-    while (deadEnd === ghostSelect) {
-      deadEnd = randomNum();
-    }
-    minus2 = randomNum();
-    while (minus2 === ghostSelect || minus2 === deadEnd) {
-      minus2 = randomNum();
-    }
-    diamond1 = randomNum();
-    while (diamond1 === ghostSelect || diamond1 === deadEnd || diamond1 === minus2) {
-      diamond1 = randomNum();
-    }
-    diamond2 = randomNum();
-    while (diamond2 === ghostSelect || diamond2 === deadEnd || diamond2 === minus2 || diamond2 === diamond1) {
-      diamond2 = randomNum();
-    }
-    diamond3 = randomNum();
-    while (diamond3 === ghostSelect || diamond3 === deadEnd || diamond3 === minus2 || diamond3 === diamond1 || diamond3 === diamond2) {
-      diamond3 = randomNum();
-    }
     $(".intro").show();
     $("#game").hide();
-    playerTurn();
   });
 });
