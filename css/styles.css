@@ -6,6 +6,10 @@ ul {
   font-size: 14pt;
 }
 
+/*.intro {
+  display: block;
+  margin: auto:
+}*/
 #header {
   background-color: white;
   color: black;
@@ -24,10 +28,29 @@ h2 {
   text-align: center;
 }
 
+.intro h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.intro p {
+  text-align: center;
+}
+
 img {
   width: 80%;
   border-radius: 20px;
   margin: 15px;
+}
+
+.intro-pics {
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+.rules {
+  font-size: 14pt;
 }
 
 .front {
@@ -128,11 +151,13 @@ img {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  float: right;
 }
 
 #game-start {
   display: block;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 #restart {

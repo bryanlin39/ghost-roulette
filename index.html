@@ -17,11 +17,24 @@
         <h2 id="rules">Rules:</h2>
         <ul>
           <li>There are 16 cards total</li>
-          <li>There is 1 ghost card. </li>
-          <li>If you flip over a ghost card, you lose!</li>
-          <li>During a turn, player flips over a card and if its not the ghost card, it is the next player's turn</li>
+          <li>There is 1 ghost card. If you flip over the ghost card, you lose 4 points and the round ends. </li>
+          <li>There are 7 special cards. </li>
+          <li>During a turn, player flips over a card and if its not the ghost card, the game continues. You must flip atleast 1 card every turn. After that, you can either end your turn, or go in for more.</li>
         </ul>
-        <img id="intro-pic" src="img/intro.png">
+        <h2>Cards:</h2>
+        <h3>No Ghosts Here</h3>
+        <img src="img/ghostbusters.jpg" class="intro-pics">
+        <p class="rules">+1 Point</p>
+        <h3>Dead End</h3>
+        <img src="img/dead-end.png" class="intro-pics">
+        <p class="rules">Your turn is over.</p>
+        <h3>-2</h3>
+        <img src="img/minus-2.png" class="intro-pics" id="minus2-pic">
+        <p class="rules">You lose 2 points</p>
+        <h3>Diamond</h3>
+        <img src="img/diamond.png" class="intro-pics">
+        <p class="rules">There are 3 diamonds on the board at a time. If you flip 2 diamond cards, you get 3 points. If you flip all 3, you get 5 points.</p>
+        <!-- <img id="intro-pic" src="img/intro.png"> -->
         <button type="button" id="game-start"  class="btn btn-primary btn-lg">Start Game</button>
       </div>
       <div id="game">
