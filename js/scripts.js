@@ -19,6 +19,8 @@ var diamond2 = 0;
 var diamond3 = 0;
 var diamondCounter1 = 0;
 var diamondCounter2 = 0;
+var deadEnd2 = 0;
+var minus22 = 0;
 
 function randomNum() {
   return Math.ceil(Math.random()*16);
@@ -202,11 +204,11 @@ function diamond() {
     $("#player2Points").text(player2.points);
   }
   if (diamondCounter1 === 3 && player1.isTurn === true) {
-    player1.points += 4;
+    player1.points += 5;
     $("#player1Points").text(player1.points);
   }
   if (diamondCounter2 === 3 && player2.isTurn === true) {
-    player2.points += 4;
+    player2.points += 5;
     $("#player2Points").text(player2.points);
   }
 }
@@ -234,9 +236,18 @@ $(document).ready(function() {
   while (diamond3 === ghostSelect || diamond3 === deadEnd || diamond3 === minus2 || diamond3 === diamond1 || diamond3 === diamond2) {
     diamond3 = randomNum();
   }
+  deadEnd2 = randomNum();
+  while (deadEnd2 === ghostSelect || deadEnd2 === deadEnd || deadEnd2 === minus2 || deadEnd2 === diamond1 || deadEnd2 === diamond2 || deadEnd2 === diamond3) {
+    deadEnd2 = randomNum();
+  }
+  minus22 = randomNum();
+  while (minus22 === ghostSelect || minus22 === deadEnd || minus22 === minus2 || minus22 === diamond1 || minus22 === diamond2 || minus22 === diamond3 || minus22 === deadEnd2) {
+    minus22 = randomNum();
+  }
+
   console.log("ghost ",ghostSelect);
-  console.log("deadEnd ",deadEnd);
-  console.log("minus ",minus2);
+  console.log("deadEnds ",deadEnd, deadEnd2);
+  console.log("minus ",minus2, minus22);
   console.log("diamonds ",diamond1, diamond2, diamond3);
 
   $("#dialog").dialog({
@@ -307,11 +318,19 @@ $(document).ready(function() {
     while (diamond3 === ghostSelect || diamond3 === deadEnd || diamond3 === minus2 || diamond3 === diamond1 || diamond3 === diamond2) {
       diamond3 = randomNum();
     }
+    deadEnd2 = randomNum();
+    while (deadEnd2 === ghostSelect || deadEnd2 === deadEnd || deadEnd2 === minus2 || deadEnd2 === diamond1 || deadEnd2 === diamond2 || deadEnd2 === diamond3) {
+      deadEnd2 = randomNum();
+    }
+    minus22 = randomNum();
+    while (minus22 === ghostSelect || minus22 === deadEnd || minus22 === minus2 || minus22 === diamond1 || minus22 === diamond2 || minus22 === diamond3 || minus22 === deadEnd2) {
+      minus22 = randomNum();
+    }
     player1.choseGhost = false;
     player2.choseGhost = false;
     console.log("ghost ", ghostSelect);
-    console.log("deadEnd ", deadEnd);
-    console.log("minus ", minus2);
+    console.log("deadEnds ", deadEnd, deadEnd2);
+    console.log("minus ", minus2, minus22);
     console.log("diamonds ", diamond1, diamond2, diamond3);
   });
 
