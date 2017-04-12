@@ -24,7 +24,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 * More special cards
 * Have up to 4 players (number of ghosts = number of players - 1)
 * Optimize for mobile using Bootstrap
-* Visual queues for the players.
+<!-- * Visual queues for the players. -->
 
 ## Setup/Installation Requirements
 

@@ -58,6 +58,16 @@ function cardClick() {
     $("." + diamond3).find(".back").hide();
     $("." + diamond3).addClass("diamondCard");
     flipCard(card);
+  } else if (this.className==="col-md-3 " + deadEnd2) {
+    $("." + deadEnd2).find(".dead-end").show();
+    $("." + deadEnd2).find(".back").hide();
+    $("." + deadEnd2).addClass("deadEndCard");
+    flipCard(card);
+  } else if (this.className==="col-md-3 " + minus22) {
+    $("." + minus22).find(".minus2").show();
+    $("." + minus22).find(".back").hide();
+    $("." + minus22).addClass("minus2Card");
+    flipCard(card);
   } else {
     $(this).find(".front").show();
     $(this).find(".back").hide();
