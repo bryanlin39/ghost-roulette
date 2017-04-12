@@ -26,7 +26,6 @@ function cardClick() {
     $(this).find(".front").show();
     $(this).find(".back").hide();
     flipCard(card);
-    playerTurn();
   }
 }
 
@@ -41,7 +40,6 @@ function determineWinner() {
 }
 
 function flipCard(card) {
-  console.log(player1,player2)
   if (card.hasClass("ghostCard")) {
     $(".col-md-3").off("click", cardClick);
     if (player1.isTurn === true) {
@@ -72,13 +70,9 @@ function flipCard(card) {
   } else {
     if (player1.isTurn === true) {
       player1.points += 1;
-      player1.isTurn = false;
-      player2.isTurn = true;
       $("#player1Points").text(player1.points);
     } else {
       player2.points += 1;
-      player2.isTurn = false;
-      player1.isTurn = true;
       $("#player2Points").text(player2.points);
     }
   }
@@ -125,6 +119,18 @@ $(document).ready(function() {
 
   playerTurn();
   $(".col-md-3").one("click", cardClick);
+
+  $("#end-turn").click( function() {
+    if (player1.isTurn === true) {
+      player1.isTurn = false;
+      player2.isTurn = true;
+      playerTurn();
+    } else {
+      player2.isTurn = false;
+      player1.isTurn = true;
+      playerTurn();
+    }
+  });
 
   $("#play-again").click(function() {
     round += 1;

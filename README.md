@@ -17,7 +17,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 * Replay button to reset cards -->
 
 ## Additional Features
-* You have the option to continue or end your turn after each flip that isn't a ghost.
+<!-- * You have the option to continue or end your turn after each flip that isn't a ghost. -->
 * Special cards - flip 2 cards, opponent flips 2 cards, add another ghost
 <!-- * Point system that lasts for 5 rounds (lose points for hitting ghosts) -->
 * Option to select number of ghosts before the game

@@ -58,6 +58,12 @@ img {
   background-color: #fff2bf;
 }
 
+#end-turn {
+  padding: 15px;
+  background-color: black;
+  color: white;
+}
+
 #dialog {
   font-family: 'Suravaram', serif;
   background-color: black;
