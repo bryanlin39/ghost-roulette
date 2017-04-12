@@ -54,6 +54,9 @@ img {
 .minus2 {
   display: none;
 }
+.diamond {
+  display: none;
+}
 
 .spooky {
   width: 160px;
@@ -83,7 +86,7 @@ img {
   font-size: 50px;
 }
 
-#play-again {
+#next-round {
   width: 300px;
   height: auto;
   margin: auto;

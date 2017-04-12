@@ -18,10 +18,11 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 
 ## Additional Features
 <!-- * You have the option to continue or end your turn after each flip that isn't a ghost. -->
-* Special cards - flip 2 cards, opponent flips 2 cards, add another ghost
+<!-- * Special cards -->
 <!-- * Point system that lasts for 5 rounds (lose points for hitting ghosts) -->
-* Option to select number of ghosts before the game
-* Show all cards face-up in the beginning, then flip over and shuffle
+* You must click at least one card before ending your turn.
+* Option to select number of ghosts before the game.
+* More special cards
 * Have up to 4 players (number of ghosts = number of players - 1)
 * Optimize for mobile using Bootstrap
 * Visual queues for the players.
