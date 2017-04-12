@@ -85,12 +85,12 @@ function clickedDeadEnd() {
     player1.isTurn = false;
     player2.isTurn = true;
     playerTurn();
-    $("#player1-animation").text("DEAD  END").show().delay(300).fadeOut().addClass("deadend-animation");
+    $("#player1-animation").text("DEAD  END").show().delay(300).fadeOut().removeClass().addClass("deadend-animation");
   } else {
     player2.isTurn = false;
     player1.isTurn = true;
     playerTurn();
-    $("#player2-animation").text("DEAD  END").show().delay(300).fadeOut().addClass("deadend-animation");
+    $("#player2-animation").text("DEAD  END").show().delay(300).fadeOut().removeClass().addClass("deadend-animation");
   }
 }
 
