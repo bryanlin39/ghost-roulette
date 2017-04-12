@@ -30,14 +30,6 @@ img {
   margin: 15px;
 }
 
-.panel-heading {
-  text-align: center;
-}
-
-#ghost-title {
-  color: red;
-}
-
 .front {
   display: none;
 }
@@ -74,6 +66,32 @@ img {
   padding: 15px;
   background-color: black;
   color: white;
+}
+
+#player1-animation {
+  margin: 15px;
+  font-size: 30px;
+  position: absolute;
+  left: 0;
+}
+
+#player2-animation {
+  margin: 15px;
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.plus-animation {
+  color: green;
+}
+
+.minus-animation {
+  color:red;
+}
+
+.deadend-animation {
+  font-family: 'Suravaram', serif;
 }
 
 #dialog {
