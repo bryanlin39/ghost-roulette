@@ -71,7 +71,7 @@ function determineWinner() {
   } else if (player2.points > player1.points) {
     return "Player 2 wins!";
   } else {
-    return "DRAW";
+    return "DRAW!";
   }
 }
 
@@ -88,11 +88,11 @@ function flipCard(card) {
   } else if (player1.isTurn === true) {
     player1.points += 1;
     $("#player1Points").text(player1.points);
-    $("#player1-animation").text("+1").show().delay(300).fadeOut().removeClass().addClass("plus-animation");
+    $("#player1-animation").text("+1").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   } else {
     player2.points += 1;
     $("#player2Points").text(player2.points);
-    $("#player2-animation").text("+1").show().delay(300).fadeOut().removeClass().addClass("plus-animation");
+    $("#player2-animation").text("+1").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   }
 }
 
@@ -100,11 +100,11 @@ function clickedMinus2() {
   if (player1.isTurn === true) {
     player1.points -= 2;
     $("#player1Points").text(player1.points);
-    $("#player1-animation").text("-2").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
+    $("#player1-animation").text("-2").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
   } else {
     player2.points -= 2;
     $("#player2Points").text(player2.points);
-    $("#player2-animation").text("-2").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
+    $("#player2-animation").text("-2").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
   }
 }
 
@@ -113,12 +113,12 @@ function clickedDeadEnd() {
     player1.isTurn = false;
     player2.isTurn = true;
     playerTurn();
-    $("#player1-animation").text("DEAD  END").show().delay(300).fadeOut().removeClass().addClass("deadend-animation");
+    $("#player1-animation").text("Dead End").show().delay(450).fadeOut().removeClass().addClass("deadend-animation");
   } else {
     player2.isTurn = false;
     player1.isTurn = true;
     playerTurn();
-    $("#player2-animation").text("DEAD  END").show().delay(300).fadeOut().removeClass().addClass("deadend-animation");
+    $("#player2-animation").text("Dead End").show().delay(450).fadeOut().removeClass().addClass("deadend-animation");
   }
 }
 
@@ -130,9 +130,9 @@ function clickedGhost() {
     player1.points -= 4;
     player1.isTurn = false;
     player2.isTurn = true;
-    playerTurn();
+    // playerTurn();
     $("#player1Points").text(player1.points);
-    $("#player1-animation").text("-4").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
+    $("#player1-animation").text("-4").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
@@ -146,9 +146,9 @@ function clickedGhost() {
     player2.points -= 4;
     player2.isTurn = false;
     player1.isTurn = true;
-    playerTurn();
+    // playerTurn();
     $("#player2Points").text(player2.points);
-    $("#player2-animation").text("-4").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
+    $("#player2-animation").text("-4").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
@@ -165,15 +165,17 @@ function playerTurn() {
   if(player2.isTurn===true) {
     $("#player1").removeClass("player1Turn");
     $("#player2").addClass("player2Turn");
+    $("#player2-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player2-turn-animation");
   } else {
     $("#player1").addClass("player1Turn");
     $("#player2").removeClass("player2Turn");
+    $("#player1-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player1-turn-animation");
   }
 }
 
 function endTurn() {
   if (cardsFlipped < 1) {
-    alert("You must flip atleast one card before ending your turn!")
+    alert("You must flip at least one card before ending your turn!")
 ;  } else if (player1.isTurn === true) {
     player1.isTurn = false;
     player2.isTurn = true;
@@ -198,18 +200,22 @@ function diamond() {
   if (diamondCounter1 === 2 && player1.isTurn === true) {
     player1.points += 3;
     $("#player1Points").text(player1.points);
+    $("#player1-animation").text("+3").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   }
   if (diamondCounter2 === 2 && player2.isTurn === true) {
     player2.points += 3;
     $("#player2Points").text(player2.points);
+    $("#player2-animation").text("+3").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   }
   if (diamondCounter1 === 3 && player1.isTurn === true) {
     player1.points += 5;
     $("#player1Points").text(player1.points);
+    $("#player1-animation").text("+5").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   }
   if (diamondCounter2 === 3 && player2.isTurn === true) {
     player2.points += 5;
     $("#player2Points").text(player2.points);
+    $("#player2-animation").text("+5").show().delay(450).fadeOut().removeClass().addClass("plus-animation");
   }
 }
 
@@ -271,6 +277,7 @@ $(document).ready(function() {
  $("#game-start").click(function() {
    $(".intro").hide();
    $("#game").show();
+   $("#player1-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player1-turn-animation");
  });
 
   playerTurn();
@@ -332,6 +339,7 @@ $(document).ready(function() {
     console.log("deadEnds ", deadEnd, deadEnd2);
     console.log("minus ", minus2, minus22);
     console.log("diamonds ", diamond1, diamond2, diamond3);
+    playerTurn();
   });
 
   $("#restart").click(function() {
