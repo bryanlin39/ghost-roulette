@@ -28,6 +28,11 @@ function cardClick() {
     $("." + deadEnd).find(".back").hide();
     $("." + deadEnd).addClass("deadEndCard");
     flipCard(card);
+  } else if(this.className==="col-md-3 " + minus2) {
+    $("." + minus2).find(".minus2").show();
+    $("." + minus2).find(".back").hide();
+    $("." + minus2).addClass("minus2Card");
+    flipCard(card);
   } else {
     $(this).find(".front").show();
     $(this).find(".back").hide();
@@ -50,14 +55,24 @@ function flipCard(card) {
     clickedGhost();
   } else if(card.hasClass("deadEndCard")) {
     clickedDeadEnd();
+  } else if(card.hasClass("minus2Card")) {
+    clickedMinus2();
+  } else if (player1.isTurn === true) {
+    player1.points += 1;
+    $("#player1Points").text(player1.points);
   } else {
-    if (player1.isTurn === true) {
-      player1.points += 1;
-      $("#player1Points").text(player1.points);
-    } else {
-      player2.points += 1;
-      $("#player2Points").text(player2.points);
-    }
+    player2.points += 1;
+    $("#player2Points").text(player2.points);
+  }
+}
+
+function clickedMinus2() {
+  if (player1.isTurn === true) {
+    player1.points -= 2;
+    $("#player1Points").text(player1.points);
+  } else {
+    player2.points -= 2;
+    $("#player2Points").text(player2.points);
   }
 }
 
@@ -78,6 +93,9 @@ function clickedGhost() {
   if (player1.isTurn === true) {
     player1.choseGhost = true;
     player1.points -= 4;
+    player1.isTurn = false;
+    player2.isTurn = true;
+    playerTurn();
     $("#player1Points").text(player1.points);
     if (round === 5) {
       $("#final-dialog").dialog("open");
@@ -90,6 +108,9 @@ function clickedGhost() {
   } else {
     player2.choseGhost = true;
     player2.points -= 4;
+    player2.isTurn = false;
+    player1.isTurn = true;
+    playerTurn();
     $("#player2Points").text(player2.points);
     if (round === 5) {
       $("#final-dialog").dialog("open");
@@ -120,8 +141,13 @@ $(document).ready(function() {
   while (deadEnd === ghostSelect) {
     deadEnd = randomNum();
   }
+  minus2 = randomNum();
+  while (minus2 === ghostSelect || minus2 === deadEnd) {
+    minus2 = randomNum();
+  }
   console.log(ghostSelect);
   console.log(deadEnd);
+  console.log(minus2);
 
   $("#dialog").dialog({
    autoOpen: false,
@@ -168,20 +194,29 @@ $(document).ready(function() {
     $(".front").hide();
     $(".back").show();
     $(".ghost").hide();
+    $(".dead-end").hide();
+    $(".minus2").hide();
     $("#dialog").dialog("close");
     $("." + ghostSelect).removeClass("ghostCard");
+    $("." + deadEnd).removeClass("deadEndCard");
+    $("." + minus2).removeClass("minus2Card");
     ghostSelect = randomNum();
     deadEnd = randomNum();
     while (deadEnd === ghostSelect) {
       deadEnd = randomNum();
     }
+    minus2 = randomNum();
+    while (minus2 === ghostSelect || minus2 === deadEnd) {
+      minus2 = randomNum();
+    }
     player1.choseGhost = false;
     player2.choseGhost = false;
     console.log(ghostSelect);
     console.log(deadEnd);
+    console.log(minus2);
   });
 
-  $("#restart").click(function(){
+  $("#restart").click(function() {
     round = 1;
     player1.points = 0;
     player2.points = 0;
@@ -196,12 +231,20 @@ $(document).ready(function() {
     $(".front").hide();
     $(".back").show();
     $(".ghost").hide();
+    $(".dead-end").hide();
+    $(".minus2").hide();
     $("#final-dialog").dialog("close");
     $("." + ghostSelect).removeClass("ghostCard");
+    $("." + deadEnd).removeClass("deadEndCard");
+    $("." + minus2).removeClass("minus2Card");
     ghostSelect = randomNum();
     deadEnd = randomNum();
     while (deadEnd === ghostSelect) {
       deadEnd = randomNum();
+    }
+    minus2 = randomNum();
+    while (minus2 === ghostSelect || minus2 === deadEnd) {
+      minus2 = randomNum();
     }
     $(".intro").show();
     $("#game").hide();
