@@ -46,6 +46,10 @@ img {
   display: none;
 }
 
+.dead-end {
+  display: none;
+}
+
 .spooky {
   width: 160px;
 }
