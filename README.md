@@ -20,7 +20,7 @@ Two players take turns flipping a card. First player to flip the ghost card lose
 <!-- * You have the option to continue or end your turn after each flip that isn't a ghost. -->
 <!-- * Special cards -->
 <!-- * Point system that lasts for 5 rounds (lose points for hitting ghosts) -->
-* You must click at least one card before ending your turn.
+<!-- * You must click at least one card before ending your turn. -->
 * Option to select number of ghosts before the game.
 * More special cards
 * Have up to 4 players (number of ghosts = number of players - 1)

@@ -8,6 +8,9 @@ function Player(name, isTurn, choseGhost, points) {
 var player1 = new Player("player1", true, false, 0);
 var player2 = new Player("player2", false, false, 0);
 
+var round = 1;
+var cardsFlipped = 0;
+
 var ghostSelect = 0;
 var deadEnd = 0;
 var minus2 = 0;
@@ -16,7 +19,6 @@ var diamond2 = 0;
 var diamond3 = 0;
 var diamondCounter1 = 0;
 var diamondCounter2 = 0;
-var round = 1;
 
 function randomNum() {
   return Math.ceil(Math.random()*16);
@@ -72,6 +74,7 @@ function determineWinner() {
 }
 
 function flipCard(card) {
+  cardsFlipped ++;
   if (card.hasClass("ghostCard")) {
     clickedGhost();
   } else if(card.hasClass("deadEndCard")) {
@@ -148,6 +151,7 @@ function clickedGhost() {
 }
 
 function playerTurn() {
+  cardsFlipped = 0;
   if(player2.isTurn===true) {
     $("#player1").removeClass("player1Turn");
     $("#player2").addClass("player2Turn");
@@ -158,7 +162,9 @@ function playerTurn() {
 }
 
 function endTurn() {
-  if (player1.isTurn === true) {
+  if (cardsFlipped < 1) {
+    alert("You must flip atleast one card before ending your turn!")
+;  } else if (player1.isTurn === true) {
     player1.isTurn = false;
     player2.isTurn = true;
     playerTurn();
@@ -179,19 +185,19 @@ function diamond() {
   console.log("diamondCounter1 ", diamondCounter1);
   console.log("diamondCounter2 ", diamondCounter2);
 
-  if (diamondCounter1 === 2) {
+  if (diamondCounter1 === 2 && player1.isTurn === true) {
     player1.points += 3;
     $("#player1Points").text(player1.points);
   }
-  if (diamondCounter2 === 2) {
+  if (diamondCounter2 === 2 && player2.isTurn === true) {
     player2.points += 3;
     $("#player2Points").text(player2.points);
   }
-  if (diamondCounter1 === 3) {
+  if (diamondCounter1 === 3 && player1.isTurn === true) {
     player1.points += 4;
     $("#player1Points").text(player1.points);
   }
-  if (diamondCounter2 === 3) {
+  if (diamondCounter2 === 3 && player2.isTurn === true) {
     player2.points += 4;
     $("#player2Points").text(player2.points);
   }
