@@ -60,9 +60,11 @@ function flipCard(card) {
   } else if (player1.isTurn === true) {
     player1.points += 1;
     $("#player1Points").text(player1.points);
+    $("#player1-animation").text("+1").show().delay(300).fadeOut().removeClass().addClass("plus-animation");
   } else {
     player2.points += 1;
     $("#player2Points").text(player2.points);
+    $("#player2-animation").text("+1").show().delay(300).fadeOut().removeClass().addClass("plus-animation");
   }
 }
 
@@ -70,9 +72,11 @@ function clickedMinus2() {
   if (player1.isTurn === true) {
     player1.points -= 2;
     $("#player1Points").text(player1.points);
+    $("#player1-animation").text("-2").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
   } else {
     player2.points -= 2;
     $("#player2Points").text(player2.points);
+    $("#player2-animation").text("-2").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
   }
 }
 
@@ -81,10 +85,12 @@ function clickedDeadEnd() {
     player1.isTurn = false;
     player2.isTurn = true;
     playerTurn();
+    $("#player1-animation").text("DEAD  END").show().delay(300).fadeOut().addClass("deadend-animation");
   } else {
     player2.isTurn = false;
     player1.isTurn = true;
     playerTurn();
+    $("#player2-animation").text("DEAD  END").show().delay(300).fadeOut().addClass("deadend-animation");
   }
 }
 
@@ -97,6 +103,7 @@ function clickedGhost() {
     player2.isTurn = true;
     playerTurn();
     $("#player1Points").text(player1.points);
+    $("#player1-animation").text("-4").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
@@ -112,6 +119,7 @@ function clickedGhost() {
     player1.isTurn = true;
     playerTurn();
     $("#player2Points").text(player2.points);
+    $("#player2-animation").text("-4").show().delay(300).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
