@@ -166,6 +166,16 @@ img {
   margin-bottom: 20px;
 }
 
+#final-dialog {
+  background-color: #a50000;
+  font-size: 25pt;
+}
+
+#final-dialog h2 {
+  color: white;
+  font-size: 30pt;
+}
+
 #restart {
   display: block;
   margin: auto;

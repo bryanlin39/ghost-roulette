@@ -5,12 +5,11 @@ function Player(name, isTurn, choseGhost, points) {
   this.points = points;
 }
 
-var player1 = new Player("player1", true, false, 0);
-var player2 = new Player("player2", false, false, 0);
+var player1 = new Player("player1", true, false, 10);
+var player2 = new Player("player2", false, false, 10);
 
-var round = 1;
+var round = 5;
 var cardsFlipped = 0;
-
 var ghostSelect = 0;
 var deadEnd = 0;
 var minus2 = 0;
@@ -137,12 +136,11 @@ function clickedGhost() {
   $("#end-turn").off("click", endTurn);
   if (player1.isTurn === true) {
     player1.choseGhost = true;
-    player1.points -= 4;
+    player1.points -= 3;
     player1.isTurn = false;
     player2.isTurn = true;
-    // playerTurn();
     $("#player1Points").text(player1.points);
-    $("#player1-animation").text("-4").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
+    $("#player1-animation").text("-3").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
@@ -153,12 +151,12 @@ function clickedGhost() {
     }
   } else {
     player2.choseGhost = true;
-    player2.points -= 4;
+    player2.points -= 3;
     player2.isTurn = false;
     player1.isTurn = true;
     // playerTurn();
     $("#player2Points").text(player2.points);
-    $("#player2-animation").text("-4").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
+    $("#player2-animation").text("-3").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
       $("#final-dialog").dialog("open");
       $(".ui-dialog-titlebar-close").remove();
@@ -279,7 +277,9 @@ function setNewRound() {
   $(".diamond").hide();
   $("." + ghostSelect).removeClass("ghostCard");
   $("." + deadEnd).removeClass("deadEndCard");
+  $("." + deadEnd2).removeClass("deadEndCard");
   $("." + minus2).removeClass("minus2Card");
+  $("." + minus22).removeClass("minus2Card");
   $("." + diamond1).removeClass("diamondCard");
   $("." + diamond2).removeClass("diamondCard");
   $("." + diamond3).removeClass("diamondCard");
@@ -307,8 +307,8 @@ $(document).ready(function() {
 
   $("#final-dialog").dialog({
     autoOpen: false,
-    height: 700,
-    width: 700,
+    height: 850,
+    width: 850,
     draggable: true,
     resizable: false,
     closeOnEscape: false
@@ -317,6 +317,8 @@ $(document).ready(function() {
   $("#game-start").click(function() {
     $(".intro").hide();
     $("#game").show();
+    $("#player1Points").text(player1.points);
+    $("#player2Points").text(player2.points);
     $("#player1-animation").text("Your Turn").show().delay(450).fadeOut().removeClass().addClass("player1-turn-animation");
   });
 
@@ -336,8 +338,8 @@ $(document).ready(function() {
 
   $("#restart").click(function() {
     round = 1;
-    player1.points = 0;
-    player2.points = 0;
+    player1.points = 10;
+    player2.points = 10;
     player1.isTurn = true;
     player2.isTurn = false;
     setNewRound();
