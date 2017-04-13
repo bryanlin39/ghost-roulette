@@ -8,7 +8,7 @@ function Player(name, isTurn, choseGhost, points) {
 var player1 = new Player("player1", true, false, 10);
 var player2 = new Player("player2", false, false, 10);
 
-var round = 5;
+var round = 1;
 var cardsFlipped = 0;
 var ghostSelect = 0;
 var deadEnd = 0;
@@ -142,7 +142,7 @@ function clickedGhost() {
     $("#player1Points").text(player1.points);
     $("#player1-animation").text("-3").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
-      $("#final-dialog").dialog("open");
+      $("#final-dialog").dialog("open").effect("shake", {direction:"up", distance: 40});
       $(".ui-dialog-titlebar-close").remove();
       $(".winner").text(determineWinner());
     } else {
@@ -158,7 +158,7 @@ function clickedGhost() {
     $("#player2Points").text(player2.points);
     $("#player2-animation").text("-3").show().delay(450).fadeOut().removeClass().addClass("minus-animation");
     if (round === 5) {
-      $("#final-dialog").dialog("open");
+      $("#final-dialog").dialog("open").effect("shake", {direction:"up", distance: 40});
       $(".ui-dialog-titlebar-close").remove();
       $(".winner").text(determineWinner());
     } else {
