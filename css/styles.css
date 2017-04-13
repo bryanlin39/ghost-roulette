@@ -89,14 +89,14 @@ img {
 
 #player1-animation {
   margin: 15px;
-  font-size: 30px;
+  font-size: 40px;
   position: absolute;
   left: 0;
 }
 
 #player2-animation {
   margin: 15px;
-  font-size: 30px;
+  font-size: 40px;
   position: absolute;
   right: 0;
 }
